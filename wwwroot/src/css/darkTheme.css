@@ -1,0 +1,20 @@
+* {
+  --color-background: #181a1e;
+  --color-white: #202528;
+  --color-dark: #edeffd;
+  --color-dark-variant: #a3bdcc;
+  --color-light: rgba(0, 0, 0, 0.4);
+  --box-shadow: 0 2rem 3rem var(--color-light);
+}
+
+.right .theme-toggler span.active {
+    background: none;
+    color: none;
+    border-radius: none;
+}
+
+.right .theme-toggler span {
+    background: var(--color-primary);
+    color: white;
+    border-radius: var(--border-radius-1);
+}

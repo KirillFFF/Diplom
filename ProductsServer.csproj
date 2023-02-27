@@ -1,0 +1,38 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Models\Manufacture.cs~RF3f2364.TMP" />
+    <None Remove="Models\Product.cs~RFc3cf71.TMP" />
+    <None Remove="Models\ProductGroup.cs~RF1115f85.TMP" />
+    <None Remove="Models\ProductGroup.cs~RFcc345e.TMP" />
+    <None Remove="Models\ProductUnit.cs~RF11cfecd.TMP" />
+    <None Remove="Models\ProductUnit.cs~RF810888.TMP" />
+    <None Remove="Models\Receipt.cs~RF7577e6.TMP" />
+    <None Remove="Models\User.cs~RFa26ffc.TMP" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AspNetCoreRateLimit" Version="4.0.2" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="5.0.17" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="5.0.17" />
+    <PackageReference Include="MySql.EntityFrameworkCore" Version="5.0.17" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="5.6.3" />
+    <PackageReference Include="Telegram.Bot" Version="18.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="MySql.Data">
+      <HintPath>C:\Program Files (x86)\MySQL\MySQL Connector NET 8.0.31\Assemblies\net5.0\MySql.Data.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\Home\index.html" />
+  </ItemGroup>
+
+</Project>
