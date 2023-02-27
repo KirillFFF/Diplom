@@ -1,0 +1,121 @@
+﻿<Window x:Class="ProductsClient.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:uc="clr-namespace:ProductsClient.UserControls"
+        xmlns:vm="clr-namespace:ProductsClient.ViewModel"
+        xmlns:view="clr-namespace:ProductsClient.Views"
+        xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+        xmlns:local="clr-namespace:ProductsClient"
+        mc:Ignorable="d"
+        Title="Products Tweaker" Height="740" Width="1280" WindowStartupLocation="CenterScreen"
+        WindowStyle="None" ResizeMode="CanMinimize" AllowsTransparency="True" Background="Transparent">
+
+    <Window.DataContext>
+        <vm:NavigationVM/>
+    </Window.DataContext>
+
+    <WindowChrome.WindowChrome>
+        <WindowChrome/>
+    </WindowChrome.WindowChrome>
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="250"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+
+        <!--Left menu-->
+        <Border CornerRadius="10,0,0,10" Background="{StaticResource LeftMenuLG}">
+            <StackPanel>
+                <!--User-->
+                <Border>
+                    <view:UserTitle/>
+                    <Border.InputBindings>
+                        <MouseBinding MouseAction="LeftDoubleClick" Command="{Binding BindingTelegramCommand}"/>
+                    </Border.InputBindings>
+                </Border>
+
+                <Separator Height="0.8" Margin="20,30" Background="{StaticResource DarkPurpleBrush3}"/>
+
+                <!--Menu Buttons-->
+                <RadioButton Style="{StaticResource menuRadioButton}" IsChecked="True" Command="{Binding HomeCommand}">
+                    <StackPanel Orientation="Horizontal">
+                        <uc:Icon Style="{StaticResource menuRadioButtonIcon}" IconSource="{StaticResource Home}"/>
+                        <TextBlock Text="Главная" Style="{StaticResource menuRadioButtonText}"/>
+                    </StackPanel>
+                </RadioButton>
+
+                <RadioButton Style="{StaticResource menuRadioButton}" Command="{Binding ProductsCommand}">
+                    <StackPanel Orientation="Horizontal">
+                        <uc:Icon Style="{StaticResource menuRadioButtonIcon}" IconSource="{StaticResource ProductFind}"/>
+                        <TextBlock Text="Приход товаров" Style="{StaticResource menuRadioButtonText}"/>
+                    </StackPanel>
+                </RadioButton>
+
+                <RadioButton Style="{StaticResource menuRadioButton}" Command="{Binding SellProductsCommand}">
+                    <StackPanel Orientation="Horizontal">
+                        <uc:Icon Style="{StaticResource menuRadioButtonIcon}" IconSource="{StaticResource Cart}"/>
+                        <TextBlock Text="Продажа товаров" Style="{StaticResource menuRadioButtonText}"/>
+                    </StackPanel>
+                </RadioButton>
+
+                <RadioButton Style="{StaticResource menuRadioButton}">
+                    <StackPanel Orientation="Horizontal">
+                        <uc:Icon Style="{StaticResource menuRadioButtonIcon}" IconSource="{StaticResource Envelope}"/>
+                        <TextBlock Text="Уведомления" Style="{StaticResource menuRadioButtonText}"/>
+                    </StackPanel>
+                </RadioButton>
+
+                <RadioButton Style="{StaticResource menuRadioButton}">
+                    <StackPanel Orientation="Horizontal">
+                        <uc:Icon Style="{StaticResource menuRadioButtonIcon}" IconSource="{StaticResource Cart}"/>
+                        <TextBlock Text="Сведения" Style="{StaticResource menuRadioButtonText}"/>
+                    </StackPanel>
+                </RadioButton>
+
+                <RadioButton Style="{StaticResource menuRadioButton}">
+                    <StackPanel Orientation="Horizontal">
+                        <uc:Icon Style="{StaticResource menuRadioButtonIcon}" IconSource="{StaticResource Chart}"/>
+                        <TextBlock Text="Статистика" Style="{StaticResource menuRadioButtonText}"/>
+                    </StackPanel>
+                </RadioButton>
+
+                <RadioButton Style="{StaticResource menuRadioButton}">
+                    <StackPanel Orientation="Horizontal">
+                        <uc:Icon Style="{StaticResource menuRadioButtonIcon}" IconSource="{StaticResource Coins}"/>
+                        <TextBlock Text="Доходы" Style="{StaticResource menuRadioButtonText}"/>
+                    </StackPanel>
+                </RadioButton>
+
+                <RadioButton Style="{StaticResource menuRadioButton}">
+                    <StackPanel Orientation="Horizontal">
+                        <uc:Icon Style="{StaticResource menuRadioButtonIcon}" IconSource="{StaticResource Flag}"/>
+                        <TextBlock Text="Отслеживание" Style="{StaticResource menuRadioButtonText}"/>
+                    </StackPanel>
+                </RadioButton>
+
+                <RadioButton Style="{StaticResource menuRadioButton}">
+                    <StackPanel Orientation="Horizontal">
+                        <uc:Icon Style="{StaticResource menuRadioButtonIcon}" IconSource="{StaticResource Settings}"/>
+                        <TextBlock Text="Настройки" Style="{StaticResource menuRadioButtonText}"/>
+                    </StackPanel>
+                </RadioButton>
+
+                <Button Style="{StaticResource menuButton}" Command="{Binding CloseAppCommand}">
+                    <StackPanel Orientation="Horizontal">
+                        <uc:Icon Style="{StaticResource menuButtonIcon}" IconSource="{StaticResource LogOut}"/>
+                        <TextBlock Text="Выйти" Style="{StaticResource menuButtonText}"/>
+                    </StackPanel>
+                </Button>  
+            </StackPanel>
+        </Border>
+
+            <!--Main-->
+        <Border Grid.Column="1" CornerRadius="0,10,10,0" Background="{StaticResource MainLG}">
+            <ContentControl x:Name="Pages" Content="{Binding CurrentView}"/>
+        </Border>
+    </Grid>
+</Window>

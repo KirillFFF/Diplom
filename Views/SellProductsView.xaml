@@ -1,0 +1,170 @@
+﻿<UserControl x:Class="ProductsClient.Views.SellProductsView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+             xmlns:local="clr-namespace:ProductsClient.Views"
+             xmlns:c="clr-namespace:ProductsClient.Classes"
+             xmlns:uc="clr-namespace:ProductsClient.UserControls"
+             xmlns:vm="clr-namespace:ProductsClient.ViewModel"
+             mc:Ignorable="d" x:Name="window" Style="{StaticResource Page}">
+
+    <i:Interaction.Triggers>
+        <i:EventTrigger EventName="Loaded">
+            <i:InvokeCommandAction Command="{Binding LoadDataAsyncCommand}"/>
+        </i:EventTrigger>
+    </i:Interaction.Triggers>
+
+    <UserControl.Resources>
+        <c:MultiplicationConverter x:Key="MultiplicationConverterKey"/>
+        <c:MinusConverter x:Key="MinusConverterKey"/>
+    </UserControl.Resources>
+    
+    <UserControl.DataContext>
+        <vm:SellProductsVM/>
+    </UserControl.DataContext>
+    
+    <Grid>
+        <Border CornerRadius="0,10,10,0" Background="{StaticResource MainLG}">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="3*"/>
+                    <ColumnDefinition Width="3*"/>
+                </Grid.ColumnDefinitions>
+                <ScrollViewer VerticalScrollBarVisibility="Hidden">
+                    <ItemsControl Grid.Column="0" Margin="10,80,0,0" ItemsSource="{Binding Remains}">
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <Border Margin="0,3,3,0" Height="230" Width="190">
+                                    <Grid Background="{StaticResource LeftMenuLG}">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="2*"/>
+                                            <RowDefinition Height="7*"/>
+                                            <RowDefinition Height="3*"/>
+                                        </Grid.RowDefinitions>
+
+                                        <StackPanel Grid.Row="0">
+                                            <TextBlock Padding="0,10,0,0" TextAlignment="Center" Foreground="LightGray" FontFamily="{StaticResource Century Gothic}">
+                                                <TextBlock.Text>
+                                                    <MultiBinding StringFormat="{}{0} {1}">
+                                                        <Binding Path="Count"/>
+                                                        <Binding Path="Product.Unit.Name"/>
+                                                    </MultiBinding>
+                                                </TextBlock.Text>
+                                            </TextBlock>
+
+                                            <Separator Height="0.8" Width="170" Margin="0,10,0,0" Background="{StaticResource DarkPurpleBrush2}"/>
+                                        </StackPanel>
+
+                                        <StackPanel Grid.Row="1">
+                                            <uc:Icon Foreground="{StaticResource UserLG}" Width="100" Height="100" IconSource="{StaticResource Cart}"/>
+                                            <TextBlock TextAlignment="Center" Foreground="LightGray" FontSize="{StaticResource Regular}" FontFamily="{StaticResource Century Gothic}" Text="{Binding Product.Name}"/>
+                                        </StackPanel>
+
+                                        <StackPanel Grid.Row="2" Margin="0,6,0,0">
+                                            <TextBlock TextAlignment="Center" Foreground="LightGray" FontFamily="{StaticResource Century Gothic}">
+                                                <TextBlock.Text>
+                                                    <MultiBinding StringFormat="{}* {0} (№ {1})">
+                                                        <Binding Path="Product.IdName"/>
+                                                        <Binding Path="Id"/>
+                                                    </MultiBinding>
+                                                </TextBlock.Text>
+                                            </TextBlock>
+                                            <Separator Height="0.8" Width="170" Margin="0,4,0,10" Background="{StaticResource DarkPurpleBrush2}"/>
+                                            <TextBlock TextAlignment="Center" Foreground="LightGray" FontWeight="Bold" FontFamily="{StaticResource Century Gothic}" Text="{Binding SellCost, StringFormat={}{0:C2}, ConverterCulture=ru}"/>
+                                        </StackPanel>
+                                    </Grid>
+
+                                    <Border.InputBindings>
+                                        <MouseBinding MouseAction="LeftClick" Command="{Binding ElementName=window, Path=DataContext.AddProductCommand}" CommandParameter="{Binding Id}"/>
+                                    </Border.InputBindings>
+                                </Border>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+
+                        <ItemsControl.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <WrapPanel/>
+                            </ItemsPanelTemplate>
+                        </ItemsControl.ItemsPanel>
+                    </ItemsControl>
+                </ScrollViewer>
+                
+                <Grid Grid.Column="1" Margin="0,40,0,0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="8*"/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+
+                    <c:CDataGrid x:Name="productsTable"
+                                 Grid.Row="0"
+                                 ItemsSource="{Binding CurrentSaleProducts, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                 Style="{StaticResource DataGridStyle1}"
+                                 SelectedItem="{Binding SaleProductSelected}"
+                                 IsReadOnly="False"
+                                 CanUserSortColumns="False">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn IsReadOnly="True" Header="Наименование" Binding="{Binding Product.Product.Name}"/>
+                            <DataGridTextColumn IsReadOnly="True" Header="Цена" Binding="{Binding Product.SellCost, StringFormat={}{0:C2}, ConverterCulture=ru}"/>
+                            <DataGridTextColumn Header="Количество" Binding="{Binding Count, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                            <DataGridTextColumn IsReadOnly="True" Header="Итог">
+                                <DataGridTextColumn.Binding>
+                                    <MultiBinding Converter="{StaticResource MultiplicationConverterKey}">
+                                        <Binding Path="Product.SellCost"/>
+                                        <Binding Path="Count"/>
+                                    </MultiBinding>
+                                </DataGridTextColumn.Binding>
+                            </DataGridTextColumn>
+                            <DataGridTemplateColumn>
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <Button Margin="30,0,0,0" Background="LightPink" Width="30" Height="30" Command="{Binding ElementName=window, Path=DataContext.RemoveProductCommand}" CommandParameter="{Binding ElementName=window, Path=DataContext.SaleProductSelected}">
+                                            <Button.Content>
+                                                <uc:Icon Width="20" Height="20" Foreground="PaleVioletRed" IconSource="{StaticResource Trash}"/>
+                                            </Button.Content>
+                                        </Button>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+                        </DataGrid.Columns>
+
+                        <DataGrid.InputBindings>
+                            <MouseBinding MouseAction="LeftDoubleClick" />
+                        </DataGrid.InputBindings>
+                    </c:CDataGrid>
+
+                    <Grid Grid.Row="1" Background="{StaticResource UserLG}">
+                        <Button Background="Transparent" HorizontalContentAlignment="Left" Command="{Binding SellProductCommand}">
+                            <Button.Content>
+                                <StackPanel Orientation="Horizontal">
+                                    <Grid Width="515">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="3*"/>
+                                            <ColumnDefinition Width="4*"/>
+                                            <ColumnDefinition Width="3*"/>
+                                        </Grid.ColumnDefinitions>
+
+                                        <TextBlock Grid.Column="0" Margin="20,0,0,0" FontSize="{StaticResource Big}" VerticalAlignment="Center" Text="ПРОДАЖА"/>
+                                        <TextBlock Grid.Column="2" FontWeight="Bold" FontSize="{StaticResource Big}" HorizontalAlignment="Center" VerticalAlignment="Center" Text="{Binding TotalSum, StringFormat={}{0:C2}, ConverterCulture=ru, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                                    </Grid>
+                                </StackPanel>
+                            </Button.Content>
+                        </Button>
+
+                        <Grid.Style>
+                            <Style TargetType="Grid">
+                                <Setter Property="IsEnabled" Value="True"/>
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding Path=CurrentSaleProductsView.Count, UpdateSourceTrigger=PropertyChanged}" Value="0">
+                                        <Setter Property="IsEnabled" Value="False"/>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Grid.Style>
+                    </Grid>
+                </Grid>
+            </Grid>
+        </Border>
+    </Grid>
+</UserControl>

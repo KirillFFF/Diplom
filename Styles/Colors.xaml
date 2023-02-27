@@ -1,0 +1,173 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <SolidColorBrush x:Key="DarkBlueBrush1" Color="#223266"/>
+    <Color x:Key="DarkBlueColor1">#223266</Color>
+    
+    <SolidColorBrush x:Key="DarkBlueBrush2" Color="#27396b"/>
+    <Color x:Key="DarkBlueColor2">#27396b</Color>
+
+    <SolidColorBrush x:Key="DarkBlueBrush3" Color="#2c386c"/>
+    <Color x:Key="DarkBlueColor3">#2c386c</Color>
+
+    <SolidColorBrush x:Key="DarkBlueBrush4" Color="#243771"/>
+    <Color x:Key="DarkBlueColor4">#243771</Color>
+
+    <SolidColorBrush x:Key="DarkBlueBrush5" Color="#364c8f"/>
+    <Color x:Key="DarkBlueColor5">#364c8f</Color>
+
+    <SolidColorBrush x:Key="DarkBlueBrush6" Color="#152457"/>
+    <Color x:Key="DarkBlueColor6">#152457</Color>
+
+
+    
+    <SolidColorBrush x:Key="LightBlueBrush1" Color="#41518f"/>
+    <Color x:Key="LightBlueColor1">#41518f</Color>
+    
+    <SolidColorBrush x:Key="LightBlueBrush2" Color="#bcc6e6"/>
+    <Color x:Key="LightBlueColor2">#bcc6e6</Color>
+    
+    <SolidColorBrush x:Key="LightBlueBrush3" Color="#7c8dc3"/>
+    <Color x:Key="LightBlueColor3">#7c8dc3</Color>
+
+
+    
+    <SolidColorBrush x:Key="DarkPurpleBrush1" Color="#7f7cf1"/>
+    <Color x:Key="DarkPurpleColor1">#7f7cf1</Color>
+
+    <SolidColorBrush x:Key="DarkPurpleBrush2" Color="#7788bf"/>
+    <Color x:Key="DarkPurpleColor2">#7788bf</Color>
+
+    <SolidColorBrush x:Key="DarkPurpleBrush3" Color="#46558a"/>
+    <Color x:Key="DarkPurpleColor3">#46558a</Color>
+
+    <SolidColorBrush x:Key="DarkPurpleBrush4" Color="#31407b"/>
+    <Color x:Key="DarkPurpleColor4">#31407b</Color>
+
+    <SolidColorBrush x:Key="DarkPurpleBrush5" Color="#495385"/>
+    <Color x:Key="DarkPurpleColor5">#495385</Color>
+    
+    <SolidColorBrush x:Key="DarkPurpleBrush6" Color="#1b1448"/>
+    <Color x:Key="DarkPurpleColor6">#1b1448</Color>
+    
+    <SolidColorBrush x:Key="DarkPurpleBrush7" Color="#060531"/>
+    <Color x:Key="DarkPurpleColor7">#060531</Color>
+
+
+    
+    <SolidColorBrush x:Key="LightPurpleBrush1" Color="#d3b7ff"/>
+    <Color x:Key="LightPurpleColor1">#d3b7ff</Color>
+
+    <SolidColorBrush x:Key="LightPurpleBrush2" Color="#c2cfff"/>
+    <Color x:Key="LightPurpleColor2">#c2cfff</Color>
+    
+    <SolidColorBrush x:Key="LightPurpleBrush3" Color="#707db2"/>
+    <Color x:Key="LightPurpleColor3">#707db2</Color>
+    
+    <SolidColorBrush x:Key="LightPurpleBrush4" Color="#bccaf1"/>
+    <Color x:Key="LightPurpleColor4">#bccaf1</Color>
+    
+    <SolidColorBrush x:Key="LightPurpleBrush5" Color="#a5a1f5"/>
+    <Color x:Key="LightPurpleColor5">#a5a1f5</Color>
+
+    <SolidColorBrush x:Key="LightPurpleBrush6" Color="#9eabe2"/>
+    <Color x:Key="LightPurpleColor6">#9eabe2</Color>
+    
+    <SolidColorBrush x:Key="LightPurpleBrush7" Color="#5b60c4"/>
+    <Color x:Key="LightPurpleColor7">#5b60c4</Color>
+    
+    <SolidColorBrush x:Key="LightPurpleBrush8" Color="#ccd7ff"/>
+    <Color x:Key="LightPurpleColor8">#ccd7ff</Color>
+    
+    <SolidColorBrush x:Key="LightPurpleBrush9" Color="#827bff"/>
+    <Color x:Key="LightPurpleColor9">#827bff</Color>
+    
+    <SolidColorBrush x:Key="LightPurpleBrush10" Color="#b298fd"/>
+    <Color x:Key="LightPurpleColor10">#b298fd</Color>
+    
+    <SolidColorBrush x:Key="LightPurpleBrush11" Color="#7b82ea"/>
+    <Color x:Key="LightPurpleColor11">#7b82ea</Color>
+    
+    <SolidColorBrush x:Key="LightPurpleBrush12" Color="#717eb2"/>
+    <Color x:Key="LightPurpleColor12">#717eb2</Color>
+
+    <SolidColorBrush x:Key="LightPurpleBrush13" Color="#462AD8"/>
+    <Color x:Key="LightPurpleColor13">#462AD8</Color>
+
+
+
+    <SolidColorBrush x:Key="LightGrayBrush1" Color="#e9e9e9"/>
+    <Color x:Key="LightGrayColor1">#e9e9e9</Color>
+    
+    
+
+    <SolidColorBrush x:Key="LightPinkBrush1" Color="#d9b5ff"/>
+    <Color x:Key="LightPinkColor1">#d9b5ff</Color>
+    
+    <SolidColorBrush x:Key="LightPinkBrush2" Color="#e4bbff"/>
+    <Color x:Key="LightPinkColor2">#e4bbff</Color>
+    
+    <SolidColorBrush x:Key="LightPinkBrush3" Color="#fc84cb"/>
+    <Color x:Key="LightPinkColor3">#fc84cb</Color>
+    
+    <SolidColorBrush x:Key="LightPinkBrush4" Color="#fc8fae"/>
+    <Color x:Key="LightPinkColor4">#fc8fae</Color>
+
+    <SolidColorBrush x:Key="LightPinkBrush5" Color="#ffabe6"/>
+    <Color x:Key="LightPinkColor5">#ffabe6</Color>
+
+    <SolidColorBrush x:Key="LightPinkBrush6" Color="#DA34AE"/>
+    <Color x:Key="LightPinkColor6">#DA34AE</Color>
+
+
+    <SolidColorBrush x:Key="DarkPinkBrush1" Color="#8A16C1"/>
+    <Color x:Key="DarkPinkColor1">#8A16C1</Color>
+    
+
+    <SolidColorBrush x:Key="LightOrangeBrush1" Color="#fd8a87"/>
+    <Color x:Key="LightOrangeColor1">#fd8a87</Color>
+    
+    <SolidColorBrush x:Key="LightOrangeBrush2" Color="#f3ab92"/>
+    <Color x:Key="LightOrangeColor2">#f3ab92</Color>
+    
+    <SolidColorBrush x:Key="LightOrangeBrush3" Color="#fbd5a8"/>
+    <Color x:Key="LightOrangeColor3">#fbd5a8</Color>
+    
+    <SolidColorBrush x:Key="LightOrangeBrush4" Color="#fdb89b"/>
+    <Color x:Key="LightOrangeColor4">#fdb89b</Color>
+
+
+
+    <LinearGradientBrush x:Key="LeftMenuLG" StartPoint="0.5,0" EndPoint="0.5,1">
+        <GradientStop Color="{StaticResource DarkBlueColor1}" Offset="0"/>
+        <GradientStop Color="{StaticResource DarkBlueColor2}" Offset="1"/>
+    </LinearGradientBrush>
+    
+    <LinearGradientBrush x:Key="MainLG" StartPoint="1,0" EndPoint="0,1">
+        <GradientStop Color="{StaticResource LightBlueColor1}" Offset="0"/>
+        <GradientStop Color="{StaticResource DarkBlueColor3}" Offset="1"/>
+    </LinearGradientBrush>
+    
+    <LinearGradientBrush x:Key="UserLG" StartPoint="1,0" EndPoint="1,2">
+        <GradientStop Color="{StaticResource DarkPurpleColor1}" Offset="0"/>
+        <GradientStop Color="{StaticResource LightPurpleColor1}" Offset="1"/>
+    </LinearGradientBrush>
+
+    <LinearGradientBrush x:Key="MenuButtonLG" StartPoint="0,0.5" EndPoint="1,0.5">
+        <GradientStop Color="{StaticResource DarkPurpleColor4}" Offset="0"/>
+        <GradientStop Color="{StaticResource DarkPurpleColor5}" Offset="1"/>
+    </LinearGradientBrush>
+
+    <LinearGradientBrush x:Key="LoginFormLG" StartPoint="0,1" EndPoint="1,0">
+        <GradientStop Color="{StaticResource DarkPurpleColor7}" Offset="0"/>
+        <GradientStop Color="{StaticResource DarkPurpleColor6}" Offset="0.75"/>
+    </LinearGradientBrush>
+    
+    <LinearGradientBrush x:Key="LoginBorderBrushLG" StartPoint="0,0" EndPoint="1,1">
+        <GradientStop Color="{StaticResource LightPurpleColor13}" Offset="0"/>
+        <GradientStop Color="{StaticResource LightPinkColor6}" Offset="0.75"/>
+        <GradientStop Color="{StaticResource DarkPinkColor1}" Offset="1"/>
+    </LinearGradientBrush>
+
+
+</ResourceDictionary>

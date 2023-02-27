@@ -1,0 +1,431 @@
+﻿<Window x:Class="ProductsClient.Views.AuthenticationView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ProductsClient.Views"
+        xmlns:uc="clr-namespace:ProductsClient.UserControls"
+        xmlns:vm="clr-namespace:ProductsClient.ViewModel"
+        mc:Ignorable="d" WindowState="{Binding AuthWindowState}" x:Name="window"
+        Title="Authentication" Height="550" Width="600" Background="Transparent" AllowsTransparency="True"
+        WindowStyle="None" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+
+    <Window.DataContext>
+        <vm:AuthentiactionVM/>
+    </Window.DataContext>
+
+    <WindowChrome.WindowChrome>
+        <WindowChrome/>
+    </WindowChrome.WindowChrome>
+
+    <Border CornerRadius="30"
+            Background="{StaticResource LoginFormLG}"
+            BorderBrush="{StaticResource LoginBorderBrushLG}"
+            BorderThickness="2">
+
+        <Grid>
+            <Grid Opacity="0.13">
+                <Border>
+                    <Border.Style>
+                        <Style TargetType="Border">
+                            <Setter Property="Effect">
+                                <Setter.Value>
+                                    <BlurEffect Radius="0"/>
+                                </Setter.Value>
+                            </Setter>
+                            <Style.Triggers>
+                                <EventTrigger RoutedEvent="Border.Loaded">
+                                    <EventTrigger.Actions>
+                                        <BeginStoryboard>
+                                            <Storyboard RepeatBehavior="{x:Static RepeatBehavior.Forever}">
+                                                <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Background">
+                                                    <DiscreteObjectKeyFrame  KeyTime="0:0:0">
+                                                        <DiscreteObjectKeyFrame.Value>
+                                                            <ImageBrush Stretch="Uniform" ImageSource="{StaticResource CheckingBoxesImage}"/>
+                                                        </DiscreteObjectKeyFrame.Value>
+                                                    </DiscreteObjectKeyFrame>
+                                                </ObjectAnimationUsingKeyFrames>
+
+                                                <DoubleAnimation Storyboard.TargetProperty="(UIElement.Effect).(BlurEffect.Radius)" From="0" To="20" BeginTime="0:0:13" Duration="0:0:2" DecelerationRatio="0.3"/>
+                                                <DoubleAnimation Storyboard.TargetProperty="Opacity" From="100" To="0" BeginTime="0:0:11" Duration="0:0:4" DecelerationRatio="0.8"/>
+
+                                                <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Background" BeginTime="0:0:15">
+                                                    <DiscreteObjectKeyFrame KeyTime="0:0:0">
+                                                        <DiscreteObjectKeyFrame.Value>
+                                                            <ImageBrush Stretch="Uniform" ImageSource="{StaticResource RoboticsImage}"/>
+                                                        </DiscreteObjectKeyFrame.Value>
+                                                    </DiscreteObjectKeyFrame>
+                                                </ObjectAnimationUsingKeyFrames>
+
+                                                <DoubleAnimation Storyboard.TargetProperty="Opacity" From="0" To="100" BeginTime="0:0:15" Duration="0:0:4" DecelerationRatio="1">
+                                                    <DoubleAnimation.EasingFunction>
+                                                        <PowerEase Power="10" EasingMode="EaseIn"/>
+                                                    </DoubleAnimation.EasingFunction>
+                                                </DoubleAnimation>
+                                                <DoubleAnimation Storyboard.TargetProperty="(UIElement.Effect).(BlurEffect.Radius)" From="20" To="0" BeginTime="0:0:16" Duration="0:0:2" DecelerationRatio="0.3"/>
+
+                                                <DoubleAnimation Storyboard.TargetProperty="(UIElement.Effect).(BlurEffect.Radius)" From="0" To="20" BeginTime="0:0:28" Duration="0:0:2" DecelerationRatio="0.3"/>
+                                                <DoubleAnimation Storyboard.TargetProperty="Opacity" From="100" To="0" BeginTime="0:0:26" Duration="0:0:4" DecelerationRatio="0.8"/>
+
+                                                <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Background" BeginTime="0:0:30">
+                                                    <DiscreteObjectKeyFrame KeyTime="0:0:0">
+                                                        <DiscreteObjectKeyFrame.Value>
+                                                            <ImageBrush Stretch="Uniform" ImageSource="{StaticResource Robotics2Image}"/>
+                                                        </DiscreteObjectKeyFrame.Value>
+                                                    </DiscreteObjectKeyFrame>
+                                                </ObjectAnimationUsingKeyFrames>
+
+                                                <DoubleAnimation Storyboard.TargetProperty="Opacity" From="0" To="100" BeginTime="0:0:30" Duration="0:0:4" DecelerationRatio="1">
+                                                    <DoubleAnimation.EasingFunction>
+                                                        <PowerEase Power="10" EasingMode="EaseIn"/>
+                                                    </DoubleAnimation.EasingFunction>
+                                                </DoubleAnimation>
+                                                <DoubleAnimation Storyboard.TargetProperty="(UIElement.Effect).(BlurEffect.Radius)" From="20" To="0" BeginTime="0:0:31" Duration="0:0:2" DecelerationRatio="0.3"/>
+
+                                                <DoubleAnimation Storyboard.TargetProperty="(UIElement.Effect).(BlurEffect.Radius)" From="0" To="20" BeginTime="0:0:43" Duration="0:0:2" DecelerationRatio="0.3"/>
+                                                <DoubleAnimation Storyboard.TargetProperty="Opacity" From="100" To="0" BeginTime="0:0:41" Duration="0:0:4" DecelerationRatio="0.8"/>
+
+                                                <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Background" BeginTime="0:0:45">
+                                                    <DiscreteObjectKeyFrame  KeyTime="0:0:0">
+                                                        <DiscreteObjectKeyFrame.Value>
+                                                            <ImageBrush Stretch="Uniform" ImageSource="{StaticResource CheckingBoxesImage}"/>
+                                                        </DiscreteObjectKeyFrame.Value>
+                                                    </DiscreteObjectKeyFrame>
+                                                </ObjectAnimationUsingKeyFrames>
+
+                                                <DoubleAnimation Storyboard.TargetProperty="Opacity" From="0" To="100" BeginTime="0:0:45" Duration="0:0:4" DecelerationRatio="1">
+                                                    <DoubleAnimation.EasingFunction>
+                                                        <PowerEase Power="10" EasingMode="EaseIn"/>
+                                                    </DoubleAnimation.EasingFunction>
+                                                </DoubleAnimation>
+                                                <DoubleAnimation Storyboard.TargetProperty="(UIElement.Effect).(BlurEffect.Radius)" From="20" To="0" BeginTime="0:0:46" Duration="0:0:2" DecelerationRatio="0.3"/>
+                                            </Storyboard>
+                                        </BeginStoryboard>
+                                    </EventTrigger.Actions>
+                                </EventTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Border.Style>
+                </Border>
+            </Grid>
+
+            <Grid WindowChrome.IsHitTestVisibleInChrome="True">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition Width="25"/>
+                    <ColumnDefinition Width="25"/>
+                    <ColumnDefinition Width="25"/>
+                </Grid.ColumnDefinitions>
+
+                <Button BorderThickness="0"
+                        Content="-"
+                        Foreground="White"
+                        FontSize="{StaticResource Regular}"
+                        FontFamily="Montserrat"
+                        Cursor="Hand"
+                        Grid.Column="1"
+                        Command="{Binding WindowMinimisizeCommand}">
+                    <Button.Style>
+                        <Style TargetType="Button">
+                            <Setter Property="Background" Value="#28AEED"/>
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="#278BEF"/>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+                    <Button.Template>
+                        <ControlTemplate TargetType="Button">
+                            <Border Width="18" 
+                                    Height="18"
+                                    CornerRadius="9"
+                                    Background="{TemplateBinding Background}">
+                                <ContentPresenter VerticalAlignment="Center"
+                                                  HorizontalAlignment="Center"/>
+                            </Border>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+
+                <Button BorderThickness="0"
+                        Content="X"
+                        Foreground="White"
+                        FontSize="{StaticResource Small}"
+                        FontFamily="Montserrat"
+                        Cursor="Hand"
+                        Grid.Column="2"
+                        Command="{Binding ApplicationCloseCommand}">
+                    <Button.Style>
+                        <Style TargetType="Button">
+                            <Setter Property="Background" Value="#DA34AE"/>
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="#C62DAE"/>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+                    <Button.Template>
+                        <ControlTemplate TargetType="Button">
+                            <Border Width="18" 
+                                    Height="18"
+                                    CornerRadius="9"
+                                    Background="{TemplateBinding Background}">
+                                <ContentPresenter VerticalAlignment="Center"
+                                                  HorizontalAlignment="Center"/>
+                            </Border>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+
+                <TextBlock Grid.Row="1" Grid.ColumnSpan="4" TextWrapping="Wrap" Height="32" TextAlignment="Center" Margin="173,0,173,130">
+                    <TextBlock.Style>
+                        <Style TargetType="TextBlock">
+                            <Setter Property="Foreground" Value="GreenYellow"/>
+                            <Setter Property="Text" Value="{Binding Path=Message}"/>
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding Message}" Value="User not found">
+                                    <Setter Property="Text" Value="Неправильно указан логин/пароль или к пользователю привязан другой ПК"/>
+                                    <Setter Property="Foreground" Value="PaleVioletRed"/>
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding Message}" Value="UserLogin is empty">
+                                    <Setter Property="Text" Value="Необходимо заполнить все поля"/>
+                                    <Setter Property="Foreground" Value="PaleVioletRed"/>
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding Message}" Value="Login is empty">
+                                    <Setter Property="Text" Value="Необходимо заполнить логин"/>
+                                    <Setter Property="Foreground" Value="PaleVioletRed"/>
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding Message}" Value="Password is empty">
+                                    <Setter Property="Text" Value="Необходимо заполнить пароль"/>
+                                    <Setter Property="Foreground" Value="PaleVioletRed"/>
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding Message}" Value="Connection problems">
+                                    <Setter Property="Text" Value="Не удалось подключиться к серверу"/>
+                                    <Setter Property="Foreground" Value="PaleVioletRed"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </TextBlock.Style>
+                </TextBlock>
+
+                <StackPanel Width="250"
+                            Grid.Row="1"
+                            Grid.ColumnSpan="4"
+                            Orientation="Vertical"
+                            Margin="0,35,0,0">
+
+                    <Image Source="{StaticResource RobotLogoImage}"
+                           Width="100"
+                           Height="100"/>
+
+                    <TextBlock Text="Products Tweaker"
+                               Foreground="LightGray"
+                               FontSize="{StaticResource Hi}"
+                               FontWeight="Medium"
+                               FontFamily="{StaticResource Century Gothic}"
+                               HorizontalAlignment="Center"
+                               Margin="0,5,0,0"/>
+
+                    <TextBlock Text="Логин"
+                               Foreground="DarkGray"
+                               FontSize="{StaticResource Regular}"
+                               FontWeight="Medium"
+                               FontFamily="{StaticResource Century Gothic}"
+                               Margin="0,45,0,0"/>
+
+                    <TextBox FontSize="{StaticResource Regular}"
+                             FontWeight="Medium"
+                             FontFamily="{StaticResource Century Gothic}"
+                             Foreground="White"
+                             CaretBrush="LightGray"
+                             BorderBrush="DarkGray"
+                             BorderThickness="0,0,0,1"
+                             Height="28"
+                             VerticalContentAlignment="Center"
+                             Margin="0,10,0,0"
+                             Padding="35,0,0,0"
+                             Text="{Binding UserLogin}">
+                        <TextBox.Background>
+                            <VisualBrush Stretch="Uniform" 
+                                         AlignmentX="Left"
+                                         AlignmentY="Center">
+                                <VisualBrush.Visual>
+                                    <Image Width="1" 
+                                           Height="1"
+                                           Source="{StaticResource UserLogin}"/>
+                                </VisualBrush.Visual>
+                            </VisualBrush>
+                        </TextBox.Background>
+                    </TextBox>
+
+                    <TextBlock Text="Пароль"
+                               Foreground="DarkGray"
+                               FontSize="{StaticResource Regular}"
+                               FontWeight="Medium"
+                               FontFamily="{StaticResource Century Gothic}"
+                               Margin="0,18,0,0"/>
+
+                    <PasswordBox FontSize="{StaticResource Regular}"
+                             FontWeight="Medium"
+                             FontFamily="{StaticResource Century Gothic}"
+                             Foreground="White"
+                             CaretBrush="LightGray"
+                             BorderBrush="DarkGray"
+                             BorderThickness="0,0,0,1"
+                             Height="28"
+                             VerticalContentAlignment="Center"
+                             Margin="0,10,0,0"
+                             Padding="35,0,0,0"
+                             Name="passBox">
+                        <PasswordBox.Background>
+                            <VisualBrush Stretch="Uniform" 
+                                         AlignmentX="Left"
+                                         AlignmentY="Center">
+                                <VisualBrush.Visual>
+                                    <uc:Icon Width="1" 
+                                             Height="1"
+                                             Foreground="DarkGray"
+                                             IconSource="{StaticResource Password}"/>
+                                </VisualBrush.Visual>
+                            </VisualBrush>
+                        </PasswordBox.Background>
+                    </PasswordBox>
+
+                    <Button BorderThickness="0"
+                            FontSize="{StaticResource Small}" 
+                            Foreground="White" 
+                            FontFamily="Montserrat"
+                            Cursor="Hand"
+                            Grid.Column="2"
+                            Margin="0,50,0,0"
+                            Command="{Binding AuthenticateCommand}"
+                            CommandParameter="{Binding ElementName=passBox}">
+                        <Button.Style>
+                            <Style TargetType="Button">
+                                <Setter Property="Content" Value="ВОЙТИ"/>
+                                <Setter Property="Background" Value="#462AD8"/>
+                                <Style.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Background" Value="#28AEED"/>
+                                    </Trigger>
+                                    <DataTrigger Binding="{Binding Path=ResponseMessage.IsCompleted}" Value="False">
+                                        <Setter Property="IsEnabled" Value="False"/>
+                                        <Setter Property="Background" Value="{StaticResource LeftMenuLG}"/>
+                                        <Setter Property="Content">
+                                            <Setter.Value>
+                                                <uc:Icon Width="30" Height="30" IconSource="{StaticResource Loading}" Foreground="{StaticResource UserLG}">
+                                                    <uc:Icon.Style>
+                                                        <Style TargetType="{x:Type uc:Icon}">
+                                                            <Setter Property="RenderTransform">
+                                                                <Setter.Value>
+                                                                    <RotateTransform CenterX="15" CenterY="15" Angle="0"/>
+                                                                </Setter.Value>
+                                                            </Setter>
+                                                            <Style.Triggers>
+                                                                <DataTrigger Binding="{Binding Path=ResponseMessage.IsCompleted}" Value="False">
+                                                                    <DataTrigger.EnterActions>
+                                                                        <BeginStoryboard>
+                                                                            <Storyboard RepeatBehavior="Forever">
+                                                                                <DoubleAnimation Storyboard.TargetProperty="(UIElement.RenderTransform).(RotateTransform.Angle)" By="360" Duration="0:0:3"/>
+                                                                            </Storyboard>
+                                                                        </BeginStoryboard>
+                                                                    </DataTrigger.EnterActions>
+                                                                </DataTrigger>
+                                                            </Style.Triggers>
+                                                        </Style>
+                                                    </uc:Icon.Style>
+                                                </uc:Icon>
+                                            </Setter.Value>
+                                        </Setter>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Button.Style>
+                        <Button.Template>
+                            <ControlTemplate TargetType="Button">
+                                <Border Height="40"
+                                        CornerRadius="20"
+                                        Background="{TemplateBinding Background}">
+                                    <Border.Style>
+                                        <Style TargetType="Border">
+                                            <Setter Property="Width" Value="150"/>
+                                            <Style.Triggers>
+                                                <DataTrigger Binding="{Binding Path=ResponseMessage.IsCompleted}" Value="False">
+                                                    <Setter Property="Width" Value="70"/>
+                                                </DataTrigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </Border.Style>
+                                    <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                                </Border>
+                            </ControlTemplate>
+                        </Button.Template>
+                    </Button>
+
+                    <StackPanel Orientation="Horizontal"
+                                HorizontalAlignment="Center"
+                                Margin="0,15,0,0">
+
+                        <TextBlock Text="Войти с помощью "
+                                   Foreground="DarkGray"
+                                   FontSize="{StaticResource Small}"
+                                   FontWeight="Medium"/>
+
+                        <TextBlock Text="Telegram'a"
+                                   Foreground="WhiteSmoke"
+                                   FontSize="{StaticResource Small}"
+                                   FontWeight="Medium"
+                                   Cursor="Hand">
+                            <TextBlock.InputBindings>
+                                <MouseBinding MouseAction="LeftClick" Command="{Binding TelegramAuthCommand}"/>
+                            </TextBlock.InputBindings>
+                        </TextBlock>
+                    </StackPanel>
+                </StackPanel>
+
+                <Grid.Style>
+                    <Style TargetType="Grid">
+                        <Setter Property="Effect">
+                            <Setter.Value>
+                                <BlurEffect Radius="0"/>
+                            </Setter.Value>
+                        </Setter>
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding ElementName=window, Path=IsActive}" Value="True">
+                                <DataTrigger.EnterActions>
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Visibility">
+                                                <DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static Visibility.Visible}"/>
+                                            </ObjectAnimationUsingKeyFrames>
+                                            <DoubleAnimation Storyboard.TargetProperty="(UIElement.Effect).(BlurEffect.Radius)" From="20" To="0" BeginTime="0:0:0.1" Duration="0:0:0.7" DecelerationRatio="0.3"/>
+                                            <DoubleAnimation Storyboard.TargetProperty="Opacity" From="0" To="1" Duration="0:0:0.7" DecelerationRatio="0.3"/>
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </DataTrigger.EnterActions>
+                                <DataTrigger.ExitActions>
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <DoubleAnimation Storyboard.TargetProperty="(UIElement.Effect).(BlurEffect.Radius)" From="0" To="20" Duration="0:0:0.7" DecelerationRatio="0.3"/>
+                                            <DoubleAnimation Storyboard.TargetProperty="Opacity" From="1" To="0" Duration="0:0:0.7" DecelerationRatio="0.3"/>
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Visibility" BeginTime="0:0:1">
+                                                <DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static Visibility.Collapsed}"/>
+                                            </ObjectAnimationUsingKeyFrames>
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </DataTrigger.ExitActions>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </Grid.Style>
+            </Grid>
+        </Grid>
+    </Border>
+</Window>

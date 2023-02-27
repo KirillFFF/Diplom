@@ -1,0 +1,37 @@
+﻿<UserControl x:Class="ProductsClient.UserControls.Order"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ProductsClient.UserControls"
+             mc:Ignorable="d" Name="order">
+    
+    <Border Padding="5" Margin="0,5" HorizontalAlignment="Stretch">
+        <Border.Style>
+            <Style TargetType="Border">
+                <Setter Property="Background" Value="Transparent"/>
+                <Style.Triggers>
+                    <Trigger Property="IsMouseOver" Value="True">
+                        <Setter Property="Background" Value="{StaticResource DarkBlueBrush5}"/>
+                    </Trigger>
+                </Style.Triggers>
+            </Style>
+        </Border.Style>
+
+        <StackPanel Orientation="Horizontal">
+            <Grid Width="45" Height="45" Margin="25,0,0,0">
+                <Border CornerRadius="10" Background="{StaticResource DarkBlueBrush6}"/>
+                <Rectangle Width="25" Fill="{StaticResource LightBlueBrush2}">
+                    <Rectangle.OpacityMask>
+                        <ImageBrush ImageSource="{Binding Path=Icon, ElementName=order}" Stretch="Uniform"/>
+                    </Rectangle.OpacityMask>
+                </Rectangle>
+            </Grid>
+
+            <StackPanel Margin="10,0,0,0" VerticalAlignment="Center">
+                <TextBlock Text="{Binding Path=Title, ElementName=order}" FontSize="{StaticResource Regular}" Foreground="{StaticResource LightBlueBrush3}"/>
+                <TextBlock Text="{Binding Path=Desc, ElementName=order}" FontSize="{StaticResource Small}" Foreground="{StaticResource LightBlueBrush3}" Margin="0,3,0,0"/>
+            </StackPanel>
+        </StackPanel>
+    </Border>
+</UserControl>

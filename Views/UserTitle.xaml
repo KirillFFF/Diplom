@@ -1,0 +1,59 @@
+﻿<UserControl x:Class="ProductsClient.Views.UserTitle"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ProductsClient.Views"
+             xmlns:uc="clr-namespace:ProductsClient.UserControls"
+             xmlns:vm="clr-namespace:ProductsClient.ViewModel"
+             mc:Ignorable="d" >
+
+    <UserControl.DataContext>
+        <vm:UserTitleVM/>
+    </UserControl.DataContext>
+
+    <Grid>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,35,0,0">
+            <Border CornerRadius="10" Width="40" HorizontalAlignment="Center" Height="40" Background="{StaticResource UserLG}">
+                <Grid>
+                    <uc:Icon Width="34" Foreground="{StaticResource LoginBorderBrushLG}" IconSource="{StaticResource AdminIcon}">
+                        <uc:Icon.Style>
+                            <Style TargetType="uc:Icon">
+                                <Setter Property="Visibility" Value="Collapsed"/>
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding User.AccessLevel.Name}" Value="Admin">
+                                        <Setter Property="Visibility" Value="Visible"/>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </uc:Icon.Style>
+                    </uc:Icon>
+
+                    <uc:Icon Width="34" Foreground="{StaticResource MainLG}" IconSource="{StaticResource UserIcon}">
+                        <uc:Icon.Style>
+                            <Style TargetType="uc:Icon">
+                                <Setter Property="Visibility" Value="Collapsed"/>
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding User.AccessLevel.Name}" Value="User">
+                                        <Setter Property="Visibility" Value="Visible"/>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </uc:Icon.Style>
+                    </uc:Icon>
+                </Grid>
+            </Border>
+
+            <StackPanel Margin="10,0,0,0" VerticalAlignment="Center">
+                <TextBlock Text="{Binding User.Login}" 
+                           FontSize="{StaticResource Regular}" 
+                           Margin="0,0,0,5" 
+                           Foreground="{StaticResource LightPurpleBrush2}"/>
+                <TextBlock Text="{Binding Version}" 
+                           FontSize="{StaticResource Small}" 
+                           Margin="0,0,0,5" 
+                           Foreground="{StaticResource DarkPurpleBrush2}"/>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</UserControl>
